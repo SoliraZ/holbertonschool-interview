@@ -1,30 +1,39 @@
- # Heap Insert
- 
- Create a binary tree node for use in a binary heap or generic binary tree structure.
- 
- ## Description
- 
- This directory contains code that implements a function to create a new binary tree node.  
- The node stores an integer value, a pointer to its parent, and pointers to its left and right children.
- 
- ## Prototype
- 
- ```c
- binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
- ```
- 
- - **parent**: pointer to the parent node of the node to create (can be `NULL` for the root)
- - **value**: value to put in the new node
- - **Return**: pointer to the new node, or `NULL` on failure
- 
- When created, a node does not have any children (`left` and `right` are set to `NULL`).
- 
- ## Files
- 
- - `0-binary_tree_node.c`: implementation of `binary_tree_node`
- 
- ## Notes
- 
- This function is typically used together with a shared `binary_trees.h` header and helper functions
- like `binary_tree_print` in higher-level binary tree / heap projects.
+# Heap Insert
+
+Binary tree node creation and insertion into a Max Binary Heap.
+
+## Description
+
+This directory implements:
+
+1. **binary_tree_node** – create a new binary tree node (used by the heap).
+2. **heap_insert** – insert a value into a Max Binary Heap while keeping the complete-tree shape and max-heap property (parent ≥ children). New nodes are added in level order; the inserted node is then sifted up until the heap property is restored.
+
+## Prototypes
+
+### binary_tree_node
+
+```c
+binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
+```
+
+- **parent**: pointer to the parent node (can be `NULL` for the root)
+- **value**: value to put in the new node
+- **Return**: pointer to the new node, or `NULL` on failure
+
+### heap_insert
+
+```c
+heap_t *heap_insert(heap_t **root, int value);
+```
+
+- **root**: double pointer to the root of the heap (if `*root` is `NULL`, the new node becomes the root)
+- **value**: value to store in the new node
+- **Return**: pointer to the inserted node, or `NULL` on failure
+
+## Files
+
+- `binary_trees.h`: `binary_tree_t` / `heap_t` and declarations
+- `0-binary_tree_node.c`: implementation of `binary_tree_node`
+- `1-heap_insert.c`: implementation of `heap_insert` (and helpers, up to 6 functions)
  
