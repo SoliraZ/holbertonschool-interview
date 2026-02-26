@@ -159,5 +159,7 @@ heap_t *heap_insert(heap_t **root, int value)
 	else
 		parent->right = new_node;
 	bubble_up(new_node);
+	if (new_node->parent == NULL)
+		*root = new_node;
 	return (new_node);
 }
