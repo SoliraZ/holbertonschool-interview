@@ -47,4 +47,3 @@ request(filmUrl, (err, response, body) => {
 
   printCharacters(0);
 });
-
