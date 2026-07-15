@@ -70,7 +70,6 @@ void radix_sort(int *array, size_t size)
 	{
 		counting_sort(array, size, exp, output);
 		print_array(array, size);
-		printf("\n");
 	}
 	free(output);
 }
